@@ -76,12 +76,6 @@ cd Lecture_XX_ProjectName
 Or import the folder into **IntelliJ IDEA / VS Code** and run the main application class.
 
 ---
-
-## 🤝 Acknowledgements
-
-- **[Coder Army](https://www.youtube.com/@CoderArmy9)** — for the amazing Spring Boot series in Hinglish 🇮🇳
-- **Spring Official Docs** — [spring.io](https://spring.io/)
-
 ---
 
 ## 📝 License
