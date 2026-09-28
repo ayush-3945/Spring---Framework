@@ -5,9 +5,6 @@
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
-> 📺 Following **[Coder Army](https://www.youtube.com/@CoderArmy9)** Spring Boot Series on YouTube  
-> 📅 Started: **28 September 2026**
-
 ---
 
 ## 📚 About
