@@ -7,11 +7,11 @@
 
 ## 🤔 What is Spring Framework?
 
-Spring Framework ek **open-source, lightweight Java framework** hai jo enterprise-level applications banane ke liye use hota hai.
+Spring Framework is an **open-source, lightweight Java framework** used to build enterprise-level applications.
 
-- **Creator:** Rod Johnson (2003 mein launch hua)
-- **Purpose:** Java EE (Enterprise Edition) ko simple aur easy banana
-- **Core Idea:** "Don't reinvent the wheel" — boilerplate code hatao, business logic pe focus karo
+- **Creator:** Rod Johnson (launched in 2003)
+- **Purpose:** To simplify Java EE (Enterprise Edition) development
+- **Core Idea:** "Don't reinvent the wheel" — eliminate boilerplate code and focus on business logic
 
 ---
 
@@ -19,25 +19,25 @@ Spring Framework ek **open-source, lightweight Java framework** hai jo enterpris
 
 ### Without Spring (Problems):
 ```
-❌ Tight Coupling — Objects apne dependencies khud create karte hain
-❌ Boilerplate Code — Bahut zyada repetitive code likhna padta hai
-❌ Hard to Test — Unit testing mushkil hoti hai
-❌ Hard to Maintain — Ek change = pura code change
+❌ Tight Coupling — Objects create their own dependencies
+❌ Boilerplate Code — Too much repetitive code to write
+❌ Hard to Test — Unit testing becomes difficult
+❌ Hard to Maintain — One change = entire code change
 ```
 
 ### With Spring (Solutions):
 ```
-✅ Loose Coupling — Spring objects ko manage karta hai (IoC)
-✅ Less Code — Annotations aur auto-configuration se kam code
-✅ Easy Testing — Dependency Injection se testing easy
-✅ Modular — Components alag-alag, easy to maintain
+✅ Loose Coupling — Spring manages objects via IoC
+✅ Less Code — Annotations and auto-configuration reduce code
+✅ Easy Testing — Dependency Injection makes testing simple
+✅ Modular — Components are separated, easy to maintain
 ```
 
 ---
 
 ## 🏗️ Spring Framework Architecture
 
-Spring Framework ke **modules** hain (layered architecture):
+Spring Framework consists of multiple **modules** (layered architecture):
 
 ```
 ┌─────────────────────────────────────────────────┐
@@ -68,7 +68,7 @@ Spring Framework ke **modules** hain (layered architecture):
 
 ### 1. IoC (Inversion of Control)
 
-> "Object creation ka control developer se Spring container ko de do"
+> "Hand over the control of object creation from the developer to the Spring container"
 
 **Without IoC (Tight Coupling):**
 ```java
@@ -80,14 +80,14 @@ class Car {
         engine.start();
     }
 }
-// Agar DieselEngine chahiye toh? Pura code change karo! 😩
+// What if we need a DieselEngine? We'd have to change the entire code! 😩
 ```
 
 **With IoC (Loose Coupling):**
 ```java
 // Spring container manages objects — LOOSE COUPLING ✅
 class Car {
-    private Engine engine;  // interface use karo
+    private Engine engine;  // use an interface
     
     // Spring will inject the correct engine automatically
     Car(Engine engine) {
@@ -98,19 +98,19 @@ class Car {
         engine.start();
     }
 }
-// Ab PetrolEngine ya DieselEngine — Spring handle karega! 😎
+// Now PetrolEngine or DieselEngine — Spring handles it! 😎
 ```
 
 ### 2. DI (Dependency Injection)
 
-> "Dependencies bahar se inject karo, andar se create mat karo"
+> "Inject dependencies from the outside, don't create them internally"
 
 **3 Types of Dependency Injection:**
 
 | Type | How | When to Use |
 |------|-----|-------------|
-| **Constructor Injection** | Constructor ke through | ✅ Recommended (immutable) |
-| **Setter Injection** | Setter method ke through | Optional dependencies |
+| **Constructor Injection** | Via constructor | ✅ Recommended (immutable) |
+| **Setter Injection** | Via setter method | Optional dependencies |
 | **Field Injection** | `@Autowired` directly on field | ❌ Not recommended |
 
 ```java
@@ -146,26 +146,26 @@ class Car {
 
 ### 3. Spring Container (ApplicationContext)
 
-> Spring Container = wo jagah jahan saare **Beans** (objects) rehte hain
+> Spring Container = the place where all **Beans** (objects) live and are managed
 
 ```java
-// Spring Container ko start karna
+// Starting the Spring Container
 ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
-// Ya annotation-based:
+// Or annotation-based:
 ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-// Bean nikalna container se
+// Retrieving a Bean from the container
 Car car = context.getBean(Car.class);
-car.drive();  // Spring ne engine inject kar diya hoga! ✅
+car.drive();  // Spring has already injected the engine! ✅
 ```
 
 ### 4. Beans
 
-> **Bean** = Wo Java object jo Spring Container manage karta hai
+> **Bean** = A Java object that is managed by the Spring Container
 
 ```java
-// @Component se ek class ko Bean bana do
+// Use @Component to register a class as a Bean
 @Component
 public class PetrolEngine implements Engine {
     public void start() {
@@ -181,8 +181,8 @@ public class PetrolEngine implements Engine {
 | Feature | Spring Framework | Spring Boot |
 |---------|-----------------|-------------|
 | Configuration | Manual (XML / Java) | Auto-configuration |
-| Setup Time | Slow (bahut config) | Fast (starter dependencies) |
-| Server | External (Tomcat install) | Embedded (built-in Tomcat) |
+| Setup Time | Slow (lots of config) | Fast (starter dependencies) |
+| Server | External (install Tomcat) | Embedded (built-in Tomcat) |
 | Complexity | High | Low |
 | Use Case | Fine-grained control | Rapid development |
 
@@ -192,12 +192,12 @@ public class PetrolEngine implements Engine {
 
 ## 📝 Key Takeaways
 
-1. **Spring Framework** = Java ka sabse popular framework
-2. **IoC** = Object creation ka control Spring ko de do
-3. **DI** = Dependencies bahar se inject karo
-4. **Bean** = Spring-managed object
-5. **Spring Container** = Beans ka ghar (ApplicationContext)
-6. **Spring Boot** = Spring ka easy version (auto-config + embedded server)
+1. **Spring Framework** = The most popular Java framework
+2. **IoC** = Hand over object creation control to Spring
+3. **DI** = Inject dependencies from the outside
+4. **Bean** = A Spring-managed object
+5. **Spring Container** = Home of all Beans (ApplicationContext)
+6. **Spring Boot** = Simplified version of Spring (auto-config + embedded server)
 
 ---
 
